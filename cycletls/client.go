@@ -2,8 +2,10 @@ package cycletls
 
 import (
 	"golang.org/x/net/proxy"
-	"net/http"
+	// "net/http"
 	"time"
+
+	http "github.com/useflyent/fhttp"
 )
 
 type browser struct {

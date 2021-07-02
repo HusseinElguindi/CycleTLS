@@ -5,12 +5,15 @@ import (
 	"flag"
 	"io/ioutil"
 	"log"
-	"net/http"
+
+	// "net/http"
 	"net/url"
 	"os"
 	"runtime"
 	"strings"
 	"time"
+
+	http "github.com/useflyent/fhttp"
 
 	"github.com/gorilla/websocket"
 )

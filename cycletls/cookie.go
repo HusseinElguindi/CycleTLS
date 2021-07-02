@@ -1,10 +1,12 @@
 package cycletls
 
 import (
-	"net/http"
+	// "net/http"
 	"strconv"
 	"strings"
 	"time"
+
+	http "github.com/useflyent/fhttp"
 )
 
 // Time wraps time.Time overriddin the json marshal/unmarshal to pass

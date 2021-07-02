@@ -6,14 +6,18 @@ import (
 	"crypto/tls"
 	"errors"
 	"fmt"
+
 	// "log"
 	"net"
-	"net/http"
+	// "net/http"
 	"strconv"
 	"strings"
 	"sync"
 
-	"golang.org/x/net/http2"
+	http "github.com/useflyent/fhttp"
+
+	// "golang.org/x/net/http2"
+	"github.com/useflyent/fhttp/http2"
 	"golang.org/x/net/proxy"
 
 	utls "github.com/refraction-networking/utls"
@@ -21,11 +25,15 @@ import (
 
 var errProtocolNegotiated = errors.New("protocol negotiated")
 
-type errExtensionNotExist string
-
-func (err errExtensionNotExist) Error() string {
-	return fmt.Sprintf("Extension does not exist: %s\n", err)
+func errExtensionNotExist(s string) error {
+	return fmt.Errorf("extension does not exist: %s", s)
 }
+
+// Infinite recursive call
+// type errExtensionNotExist string
+// func (err errExtensionNotExist) Error() string {
+// 	return fmt.Sprintf("Extension does not exist: %s\n", err)
+// }
 
 type roundTripper struct {
 	sync.Mutex
